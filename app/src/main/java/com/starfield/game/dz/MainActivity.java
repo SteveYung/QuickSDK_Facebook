@@ -1,33 +1,13 @@
-/****************************************************************************
-Copyright (c) 2008-2010 Ricardo Quesada
-Copyright (c) 2010-2016 cocos2d-x.org
-Copyright (c) 2013-2016 Chukong Technologies Inc.
- 
-http://www.cocos2d-x.org
+package com.starfield.game.dz;
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-****************************************************************************/
-package org.cocos2dx.lua;
-
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
+import com.freepoker.cstarpokeren.R;
 import com.u8.sdk.IU8SDKListener;
 import com.u8.sdk.InitResult;
 import com.u8.sdk.PayResult;
@@ -35,10 +15,8 @@ import com.u8.sdk.U8SDK;
 import com.u8.sdk.plugin.U8User;
 import com.u8.sdk.verify.UToken;
 
-import org.cocos2dx.lib.Cocos2dxActivity;
+public class MainActivity extends Activity {
 
-
-public class AppActivity extends Cocos2dxActivity {
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,12 +54,21 @@ public class AppActivity extends Cocos2dxActivity {
 
             @Override
             public void onAuthResult(UToken authResult) {
-
             }
 
             @Override
             public void onPayResult(PayResult result) {
 
+            }
+        });
+
+        setContentView(R.layout.activity_main);
+
+        Button btn = (Button)findViewById(R.id.login);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity.sdkLogin();
             }
         });
     }
@@ -128,5 +115,4 @@ public class AppActivity extends Cocos2dxActivity {
     static public void sdkLogout(){
         U8User.getInstance().logout();
     }
-
 }

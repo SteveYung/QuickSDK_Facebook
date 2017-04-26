@@ -1,0 +1,17 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bainagame.facebook">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application>
+
+        <meta-data android:name="com.facebook.accountkit.ApplicationName"
+            android:value="Facebook" />
+        <meta-data android:name="com.facebook.sdk.ApplicationId"
+            android:value="fb1727527777577890" />
+        <meta-data android:name="com.facebook.accountkit.ClientToken"
+            android:value="19b3dab01b810040c09608ca1d243666" />
+    </application>
+
+</manifest>

@@ -1,15 +1,18 @@
-package com.u8.sdk;
+package com.u8.sdk.baina;
 
 import android.app.Activity;
 
+import com.u8.sdk.IUser;
+import com.u8.sdk.U8SDK;
+import com.u8.sdk.UserExtraData;
 import com.u8.sdk.utils.Arrays;
 
 /**
- * Created by paili on 17/4/18.
+ * Created by paili on 2017/4/21.
  */
-public class FacebookUser implements IUser {
 
-    private String[] supportedMethods = {"login","switchLogin","logout","exit"};
+public class FacebookUser implements IUser {
+    private String[] supportedMethods = {"login","switchLogin","logout"};
 
     /**
      * 必须定义包含一个Activity参数的构造函数，否则实例化的时候，会失败
